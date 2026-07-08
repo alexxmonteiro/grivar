@@ -4,6 +4,7 @@ import { triggerItem, triggers } from "../!cutscenes/cts.js";
 import { mapSelect } from "../!utilities/randomizr.js";
 import { the_way_tc } from "./title_cards.js";
 import { well_triggerProp } from "./@props/prop_well.js";
+import { fhut_triggerProp, shut_triggerProp } from "./@props/prop_huts.js";
 
 const prompt = PromptSync();
 
@@ -98,6 +99,14 @@ class Requires{
             await well_triggerProp(); 
         }
     }
+
+    async huts_Prop(playerTile){
+        if(playerTile === 11){
+            await fhut_triggerProp();
+        }else if(playerTile === 12){
+            await shut_triggerProp();
+        }
+    }
 }
 const requires = new Requires();
 
@@ -108,16 +117,16 @@ let mapOne = [
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,8,0,0,0],
     [0,0,0,0,0,0,1,0,0,1,0,0,0],
-    [0,0,0,0,10,0,5,1,1,1,1,1,0],
+    [0,0,0,0,10,0,5,1,1,1,1,12,0],
     [0,0,0,0,1,0,0,0,0,0,0,0,0],
-    [0,1,1,1,1,1,4,0,0,0,0,0,0],
+    [0,11,1,1,1,1,4,0,0,0,0,0,0],
     [0,0,0,1,0,0,1,0,0,0,0,0,0],
     [0,0,0,9,0,0,3,0,0,0,0,0,0],
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
 ];
 
 let mapTwo = [//mod map
-    [0,0,1,0,0,0,1,0,0,0,0,0,0],
+    [0,0,12,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,0,0,0,7,1,1,8,0,0,0],
     [0,0,6,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,0,0,0,1,0,0,0,0,0,0],
@@ -125,14 +134,14 @@ let mapTwo = [//mod map
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,10,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,0,0,0,1,0,0,0,0,0,0],
-    [0,1,1,1,1,1,4,0,0,0,0,0,0],
+    [0,11,1,1,1,1,4,0,0,0,0,0,0],
     [0,0,0,0,1,0,1,0,0,0,0,0,0],
     [0,0,0,0,9,0,3,0,0,0,0,0,0],
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
 ];
 
 let mapThr = [
-    [0,0,0,0,0,0,1,0,0,0,0,1,0],
+    [0,0,0,0,0,0,1,0,0,0,0,12,0],
     [0,0,0,0,0,0,7,0,0,0,0,1,0],
     [0,8,1,1,1,1,1,0,0,0,0,6,0],
     [0,0,0,1,0,0,1,0,0,0,0,1,0],
@@ -140,7 +149,7 @@ let mapThr = [
     [0,0,0,0,0,0,1,1,1,1,1,10,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
-    [0,0,1,1,1,1,4,0,0,0,0,0,0],
+    [0,0,11,1,1,1,4,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,3,0,0,0,0,0,0],
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
@@ -162,6 +171,7 @@ async function the_way() {
         requires.activeTrigger(playerTile);
         requires.pickUpItem(playerTile);
         await requires.well_Prop(playerTile); 
+        await requires.huts_Prop(playerTile);
     }
 }
 

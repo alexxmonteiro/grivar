@@ -3,6 +3,7 @@ import chalk from "chalk";
 import { triggerItem, triggers } from "../!cutscenes/cts.js";
 import { mapSelect } from "../!utilities/randomizr.js";
 import { well_triggerProp } from "../!maps/@props/prop_well.js";
+import { lhut_triggerProp, rhut_triggerProp } from "../!maps/@props/prop_huts.js";
 
 const prompt = PromptSync();
 
@@ -13,23 +14,23 @@ let mapOne = [
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,10,0,1,0,0,0,0,0,0],
     [0,0,0,0,1,0,1,0,0,0,0,0,0],
-    [0,1,1,1,1,1,5,0,0,8,0,0,0],
+    [0,12,1,1,1,1,5,0,0,8,0,0,0],
     [0,0,0,1,0,0,1,0,0,1,0,0,0],
-    [0,0,0,9,0,0,4,1,1,1,1,1,0],
+    [0,0,0,9,0,0,4,1,1,1,1,11,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,3,0,0,0,0,0,0],
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
 ];
 
 let mapTwo = [
-    [0,0,1,0,0,0,1,0,0,0,0,0,0],
+    [0,0,12,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,0,0,0,7,1,1,8,0,0,0],
     [0,0,6,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,1,1,1,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,0,10,0,0],
     [0,0,0,0,0,0,1,0,0,0,1,0,0],
-    [0,0,0,0,0,0,4,1,1,1,1,1,0],
+    [0,0,0,0,0,0,4,1,1,1,1,11,0],
     [0,0,0,0,0,0,1,0,1,0,0,0,0],
     [0,0,0,0,0,0,1,0,9,0,0,0,0],
     [0,0,0,0,0,0,3,0,0,0,0,0,0],
@@ -37,7 +38,7 @@ let mapTwo = [
 ];
 
 let mapThr = [
-    [0,0,0,0,0,0,1,0,0,0,0,1,0],
+    [0,0,0,0,0,0,1,0,0,0,0,12,0],
     [0,0,0,0,0,0,7,0,0,0,0,1,0],
     [0,8,1,1,1,1,1,0,0,0,0,6,0],
     [0,0,0,1,0,0,1,0,0,0,0,1,0],
@@ -45,7 +46,7 @@ let mapThr = [
     [0,0,0,0,0,0,1,1,1,1,1,10,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
-    [0,0,1,1,1,1,5,0,0,0,0,0,0],
+    [0,0,11,1,1,1,5,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,3,0,0,0,0,0,0],
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
@@ -72,7 +73,9 @@ let tiles = {
     7: "%",
     8: "hw",
     9: "p",
-    10: "pt"
+    10: "pt",
+    11: "-",
+    12: "="
 };
 
 function drawMap(){
@@ -169,6 +172,18 @@ async function triggerwell(blocoAtual){
     }
 }
 
+async function triggerhutl(blocoAtual) {
+    if(blocoAtual == 11){
+        await lhut_triggerProp();
+    }
+}
+
+async function triggerhutr(blocoAtual) {
+    if(blocoAtual == 12){
+        await rhut_triggerProp();
+    }
+}
+
 async function game() {
     while (true) {
         drawMap();
@@ -182,6 +197,8 @@ async function game() {
         activeTrigger(blocoPisado);
         desc(blocoPisado);
         await triggerwell(blocoPisado);
+        await triggerhutl(blocoPisado);
+        await triggerhutr(blocoPisado);
     }
 }
 game();
