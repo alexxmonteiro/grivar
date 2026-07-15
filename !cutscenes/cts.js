@@ -103,5 +103,4 @@ export function triggerItem(id){
         it.addItem(id);
 
         console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(id))}`));
-        console.log(chalk.yellow.italic(`${it.itemDescription(id)}`));
 }

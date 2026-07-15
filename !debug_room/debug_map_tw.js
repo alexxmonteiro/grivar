@@ -3,7 +3,7 @@ import chalk from "chalk";
 import { triggerItem, triggers } from "../!cutscenes/cts.js";
 import { mapSelect } from "../!utilities/randomizr.js";
 import { well_triggerProp } from "../!maps/@props/prop_well.js";
-import { lhut_triggerProp, rhut_triggerProp } from "../!maps/@props/prop_huts.js";
+import { fhut_triggerProp, shut_triggerProp } from "../!maps/@props/prop_huts.js";
 
 const prompt = PromptSync();
 

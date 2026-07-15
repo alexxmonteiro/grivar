@@ -7,16 +7,18 @@ export class Player{
     #hp;
     #atk;
     #per;
-    constructor(hp, atk, per){
+    #class;
+    constructor(hp, atk, per, name){
         this.#hp = hp;
         this.#atk = atk;
         this.#per = per;
+        this.#class = name;
     }
 
     get hp(){
         return this.#hp;
     }
-    
+
     get atk(){
         return this.#atk;
     }
@@ -25,25 +27,58 @@ export class Player{
         return this.#per;
     }
 
+    get class(){
+        return this.#class;
+    }
+
     setStats(n){
         if(n == 1){ //Warrior
+            this.#class = 'Warrior'
             this.#hp = 10.0;
             this.#atk = 2.5;
             this.#per = 1.0;
         }else if(n == 2){ //Mage
+            this.#class = 'Mage'
             this.#hp = 7.0;
             this.#atk = 1.5;
             this.#per = 4.0;
         }else if(n == 3){ //Ranger
+            this.#class = 'Ranger'
             this.#hp = 7.5;
-            this.#atk = 3.0;
+            this.#atk = 2.0;
             this.#per = 2.0;
         }else if(n == 4){ //Paladin
+            this.#class = 'Paladin'
             this.#hp = 15.0;
             this.#atk = 3.0;
             this.#per = 0.0;
         }else{
             return false;
+        }
+    }
+
+    heal(regen, maxLife){
+        let lifeExt = player.#hp;
+        this.#hp += regen;
+
+        if(this.#hp > maxLife){
+            this.#hp = maxLife;
+        }
+
+        let extra = this.#hp - lifeExt;
+        return extra;
+    }
+
+    lifedmg(dmg){
+        this.#hp -= dmg;
+    }
+
+    getLifePerClass(className){
+        switch (className.toLowerCase()) {
+            case 'warrior': return 10.0;
+            case 'mage':    return 7.0;
+            case 'ranger':  return 7.5;
+            case 'paladin': return 15.0;
         }
     }
 }

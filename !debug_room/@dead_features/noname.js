@@ -21,4 +21,31 @@ function drawMap(){
         }
         console.log(draw);
     }
-} */
+} 
+
+                    switch (part.toLowerCase()) {
+                        case 'head': hitRatio = enm.hitratio_head; break;
+                        case 'torso': hitRatio = enm.hitratio_torso; break;
+                        case 'larm': hitRatio = enm.hitratio_larm; break;
+                        case 'rarm': hitRatio = enm.hitratio_rarm; break;
+                        case 'lleg': hitRatio = enm.hitratio_lleg; break;
+                        case 'rleg': hitRatio = enm.hitratio_rleg; break;
+                    }
+
+                    if(hitRatio <= 35){
+                        n = haT();
+                    }else if(hitRatio <= 75){
+                        n = haT();
+                        if(n != face){
+                            n = haT();
+                        }
+                    }else if(hitRatio > 75){
+                        n = haT();
+                        if(n != face){
+                            n = haT();
+                            if(n != face){
+                                n = haT();
+                            }
+                        }
+                    }
+*/
