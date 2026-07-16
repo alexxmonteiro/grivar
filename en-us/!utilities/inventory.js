@@ -59,7 +59,3 @@ item.registerItem(2, {
     lifeRegen: 3,
     quantity: 0
 });
-
-//addItem junk
-item.addItem(1);
-item.addItem(2);

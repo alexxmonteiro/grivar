@@ -158,12 +158,13 @@ let mapThr = [
 let map = requires.chooseMap();
 let player = {line: 11, colunm: 6};
 
-async function the_way() {
+export async function the_way() {
     the_way_tc();
     while (true) {
+        let input;
         let options = requires.enableOptions();
 
-        let input = prompt(chalk.white.italic("Where you going? ")+chalk.yellow.bold(`(${options})`));
+        input = prompt(chalk.white.italic("Where you going? ")+chalk.yellow.bold(`(${options})`));
         console.clear();
         
         let playerTile = requires.move(input); 
@@ -174,5 +175,3 @@ async function the_way() {
         await requires.huts_Prop(playerTile);
     }
 }
-
-the_way();

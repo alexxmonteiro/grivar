@@ -4,7 +4,7 @@ import { enemies } from "./enemies.js";
 import { haT, d3, d4, d5, d6, d10 } from "./randomizr.js";
 import { player } from "./player.js";
 import { item } from "./inventory.js";
-import { battleFase } from "../!utilities/@combat_feats/atk.js"
+import { battleFase } from "./@combat_feats/atk.js"
 import { inventoryFase } from "./@combat_feats/inv.js";
 import { stats } from "./@combat_feats/stats.js";
 import { enemyAtk } from "./@combat_feats/enm_atk.js";
@@ -24,9 +24,9 @@ export async function combat(enemy_id) {
         while (playerFase === 0) {
             let action;
             process.stdout.write('\x1Bc');
-            action = prompt(chalk.white.italic(`What do you do? `) + chalk.yellow.bold(`(ATK | INV | STATS) `));
+            action = prompt(chalk.white.italic(`O que você faz? `) + chalk.yellow.bold(`(ATK | INV | STATS) `));
             while (!['atk', 'inv', 'stats'].includes(action.toLowerCase())) {
-                action = prompt(chalk.red.italic(`ERROR: What do you do? `) + chalk.yellow.bold(`(ATK | INV | STATS) `));
+                action = prompt(chalk.red.italic(`ERRO: O que você faz? `) + chalk.yellow.bold(`(ATK | INV | STATS) `));
             }
 
             if (action.toLowerCase() === 'atk') {
@@ -38,7 +38,7 @@ export async function combat(enemy_id) {
             } else if (action.toLowerCase() === 'stats') {
                 await stats(enemy_id);
             } else {
-                prompt(chalk.red.italic("Can´t go to the inventory!"));
+                prompt(chalk.red.italic("Não é possível acessar o inventário!"));
                 process.stdout.write('\x1Bc');
             }
         }
@@ -49,13 +49,11 @@ export async function combat(enemy_id) {
 
     if(player.hp <= 0){
         process.stdout.write('\x1Bc');
-        console.log(chalk.yellow.italic("G A M E  O V E R!"));
+        console.log(chalk.yellow.italic("F I M   D E   J O G O!"));
     }else if(enm.parts_destructed === 3){
         process.stdout.write('\x1Bc');
-        prompt(chalk.yellow.italic("H E  I S  D E A D . . . "));
-        prompt(chalk.yellow.bold("He dropped something on the ground; curious, you decide to see what it is... "));
+        prompt(chalk.yellow.italic("E L E   E S T Á   M O R T O . . . "));
+        prompt(chalk.yellow.bold("Ele deixou cair algo no chão; curioso, você decide ver o que é... "));
         triggerItem(haT());
     }
 }
-
-combat(1);

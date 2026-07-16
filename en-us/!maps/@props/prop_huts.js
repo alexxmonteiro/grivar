@@ -1,11 +1,11 @@
 import PromptSync from "prompt-sync";
 import chalk from "chalk";
 import { haT } from "../../!utilities/randomizr.js";
+import { combat } from "../../!utilities/combat.js";
 
 const prompt = PromptSync();
 
-export async function fhut_triggerProp(){
-    return new Promise((resolve) =>{
+export async function fhut_triggerProp() {
         console.clear();
         console.log(chalk.yellow.italic(`The torchlights, however faint, illuminates the cabin entrance; a sense of safety hangs lightly in the air, and a false 
 nostalgia washes over you. There is no apparent danger, yet something feels wrong—you can't quite say what—but the silence of the 
@@ -32,18 +32,13 @@ air is how it remains upright, for it possesses neither joints nor flowing blood
 weathered by time. As you ponder this, it begins to walk slowly toward you; you can sense the pain each step inflicts upon it.`));
         prompt();
 
-        console.log(chalk.yellow.bold(`SUDDENLY`)+chalk.yellow.italic(`, it lunges rapidly in your direction, ready to strike...`));
-        prompt(); 
+        console.log(chalk.yellow.bold(`SUDDENLY`) + chalk.yellow.italic(`, it lunges rapidly in your direction, ready to strike...`));
+        prompt();
 
-        resolve();
-    });
-
-    //starts combat system here...
-    //finish combat and adds a scene exit
+        await combat(1);
 }
 
-export async function shut_triggerProp(){
-    return new Promise((resolve) =>{
+export async function shut_triggerProp() {
         console.log(chalk.yellow.italic(`As you approach the cabin door, you get a bad feeling—something is terribly wrong. One of the torches is lit, 
 casting a murky glow over the left side of the doorway, while the other lies on the ground; a sudden shiver running through your 
 body intensifies this sense of dread. You freeze involuntarily for a few seconds, until a surge of mixed courage and impulsiveness 
@@ -54,11 +49,8 @@ drives you to step inside the quarters without looking back...`));
 completely stripped of meaning. You question the purpose of an empty dwelling until...`));
         prompt();
 
-        console.log(chalk.yellow.bold(`from one of the dark corners`)+chalk.yellow.italic(`, you see something approaching swiftly—it looks hostile...`));
+        console.log(chalk.yellow.bold(`from one of the dark corners`) + chalk.yellow.italic(`, you see something approaching swiftly—it looks hostile...`));
         prompt();
-        resolve();
-    });
-
-    //starts combat system here...
-    //finish combat and adds a scene exit
+        
+        await combat(haT())
 }

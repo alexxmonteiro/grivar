@@ -1,9 +1,7 @@
 import chalk from 'chalk';
 import PromptSync from 'prompt-sync';
-import Player from '../!utilities/player.js'
-import characterSelect from '../!utilities/player.js';
-import mainMenu from '../!utilities/menu.js' 
-import { actOne } from '../!cutscenes/cts.js';
+import { runGameBr } from '../pt-br/funnel-br.js';
+import { runGameUs } from '../en-us/funnel-us.js';
 
 const prompt = PromptSync();
 
@@ -15,9 +13,8 @@ while(translation < 1 || translation > 2){
 }
 console.clear();
 
-const menu = mainMenu(translation);
-
-if(menu == 1){
-    characterSelect(translation);
-    actOne(translation);
-} 
+if(translation === 1){
+    runGameUs();
+}else if(translation === 2){
+    runGameBr();
+}
