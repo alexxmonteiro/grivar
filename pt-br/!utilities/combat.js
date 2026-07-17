@@ -19,6 +19,8 @@ export async function combat(enemy_id) {
 
     enm = enemies.info(enemy_id);
 
+    process.stdout.write('\x1Bc');
+    prompt(chalk.yellow.italic(`UM ${chalk.white.bold(enemies.enemyName(enemy_id).toUpperCase())} ESTÁ EM COMBATE COM VOCÊ!`));
     while (enm && enm.parts_destructed < 3 && player.hp > 0) {
         let playerFase = 0;
         while (playerFase === 0) {
@@ -50,10 +52,11 @@ export async function combat(enemy_id) {
     if(player.hp <= 0){
         process.stdout.write('\x1Bc');
         console.log(chalk.yellow.italic("F I M   D E   J O G O!"));
+        process.exit();
     }else if(enm.parts_destructed === 3){
         process.stdout.write('\x1Bc');
         prompt(chalk.yellow.italic("E L E   E S T Á   M O R T O . . . "));
-        prompt(chalk.yellow.bold("Ele deixou cair algo no chão; curioso, você decide ver o que é... "));
+        prompt(chalk.yellow.bold("Ele deixou cair algo no chão. Curioso, você decide ver o que é... "));
         triggerItem(haT());
     }
 }

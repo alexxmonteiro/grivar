@@ -75,6 +75,12 @@ function dmgOnEnemy(part) {
         dmg += ((1 / 4) * player.hp);
     }
 
+    if (player.class.toLowerCase() === 'mage' || player.class.toLowerCase() === 'ranger') {
+        if (['larm', 'rarm', 'lleg', 'rleg'].includes(part.toLowerCase())) {
+            dmg += player.per * 0.1;
+        }
+    }
+
     enm[`${part}_hp`] = Math.max(0, enm[`${part}_hp`] - dmg);
     if (critStike > 8) {
         console.log(chalk.white.italic(`C R I T I C A L  H I T \n`) + chalk.yellow.bold(`- ${dmg.toFixed(1)}`));

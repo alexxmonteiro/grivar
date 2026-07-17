@@ -1,6 +1,8 @@
 import PromptSync from 'prompt-sync';
 import chalk from 'chalk';
 import { item } from '../!utilities/inventory.js';
+import { player } from '../!utilities/player.js';
+import { haT } from '../!utilities/randomizr.js';
 
 const prompt = PromptSync();
 
@@ -68,7 +70,16 @@ walls further inside. Should you really go in?`
 export function triggerItem(id) {
         let it = item;
 
-        it.addItem(id);
-
-        console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(id))}`));
+        if (player.class.toLowerCase() === 'mage') {
+                if (haT() === 1) {
+                        let i = haT();
+                        it.addItem(i);
+                        console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(i))}`));
+                }
+                it.addItem(id);
+                console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(id))}`));
+        } else {
+                it.addItem(id);
+                console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(id))}`));
+        }
 }

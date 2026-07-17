@@ -125,7 +125,7 @@ let mapOne = [
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
 ];
 
-let mapTwo = [//mod map
+let mapTwo = [
     [0,0,12,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,0,0,0,7,1,1,8,0,0,0],
     [0,0,6,0,0,0,1,0,0,0,0,0,0],
@@ -159,6 +159,7 @@ let map = requires.chooseMap();
 let player = {line: 11, colunm: 6};
 
 export async function the_way() {
+    process.stdout.write('\x1Bc');
     the_way_tc();
     while (true) {
         let input;

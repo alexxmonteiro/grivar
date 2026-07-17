@@ -158,7 +158,8 @@ let mapThr = [
 let map = requires.chooseMap();
 let player = {line: 11, colunm: 6};
 
-export async function the_way() {
+export async function the_way(){
+    process.stdout.write('\x1Bc');
     the_way_tc();
     while (true) {
         let input;

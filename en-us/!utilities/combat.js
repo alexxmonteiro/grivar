@@ -19,6 +19,8 @@ export async function combat(enemy_id) {
 
     enm = enemies.info(enemy_id);
 
+    process.stdout.write('\x1Bc');
+    prompt(chalk.yellow.italic(`A ${chalk.white.bold(enemies.enemyName(enemy_id).toUpperCase())} IS IN COMBAT WITH YOU!`));
     while (enm && enm.parts_destructed < 3 && player.hp > 0) {
         let playerFase = 0;
         while (playerFase === 0) {
@@ -50,6 +52,7 @@ export async function combat(enemy_id) {
     if(player.hp <= 0){
         process.stdout.write('\x1Bc');
         console.log(chalk.yellow.italic("G A M E  O V E R!"));
+        process.exit();
     }else if(enm.parts_destructed === 3){
         process.stdout.write('\x1Bc');
         prompt(chalk.yellow.italic("H E  I S  D E A D . . . "));
