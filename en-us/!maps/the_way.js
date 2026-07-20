@@ -12,10 +12,10 @@ class Requires{
     constructor(){}
 
     chooseMap(){
-        switch (mapSelect) {
-            case 1: return mapOne; break;
-            case 2: return mapTwo; break;
-            case 3: return mapThr; break;
+        switch (mapSelect()) {
+            case 1: return mapOne; 
+            case 2: return mapTwo; 
+            case 3: return mapThr; 
         }
     }
 
@@ -111,14 +111,14 @@ class Requires{
 const requires = new Requires();
 
 let mapOne = [
+    [0,0,0,0,0,0,13,0,0,0,0,0,0],
+    [0,0,0,0,0,0,7,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
-    [0,0,0,0,0,0,1,0,0,0,0,0,0],
-    [0,0,0,0,0,0,6,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,8,0,0,0],
     [0,0,0,0,0,0,1,0,0,1,0,0,0],
     [0,0,0,0,10,0,5,1,1,1,1,12,0],
-    [0,0,0,0,1,0,0,0,0,0,0,0,0],
+    [0,0,0,0,1,0,1,0,0,0,0,0,0],
     [0,11,1,1,1,1,4,0,0,0,0,0,0],
     [0,0,0,1,0,0,1,0,0,0,0,0,0],
     [0,0,0,9,0,0,3,0,0,0,0,0,0],
@@ -126,7 +126,7 @@ let mapOne = [
 ];
 
 let mapTwo = [
-    [0,0,12,0,0,0,1,0,0,0,0,0,0],
+    [0,0,12,0,0,0,13,0,0,0,0,0,0],
     [0,0,1,0,0,0,7,1,1,8,0,0,0],
     [0,0,6,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,0,0,0,1,0,0,0,0,0,0],
@@ -141,7 +141,7 @@ let mapTwo = [
 ];
 
 let mapThr = [
-    [0,0,0,0,0,0,1,0,0,0,0,12,0],
+    [0,0,0,0,0,0,13,0,0,0,0,12,0],
     [0,0,0,0,0,0,7,0,0,0,0,1,0],
     [0,8,1,1,1,1,1,0,0,0,0,6,0],
     [0,0,0,1,0,0,1,0,0,0,0,1,0],
@@ -170,9 +170,15 @@ export async function the_way() {
         
         let playerTile = requires.move(input); 
 
-        requires.activeTrigger(playerTile);
-        requires.pickUpItem(playerTile);
-        await requires.well_Prop(playerTile); 
-        await requires.huts_Prop(playerTile);
+        if (playerTile !== undefined) {
+            requires.activeTrigger(playerTile);
+            requires.pickUpItem(playerTile);
+            await requires.well_Prop(playerTile); 
+            await requires.huts_Prop(playerTile);
+            
+            if(playerTile === 13){
+                break;
+            }
+        }
     }
 }

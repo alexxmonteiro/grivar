@@ -1,8 +1,9 @@
 import PromptSync from 'prompt-sync';
 import chalk from 'chalk';
 import { item } from '../!utilities/inventory.js';
-import { haT } from '../!utilities/randomizr.js';
+import { haT, d6 } from '../!utilities/randomizr.js';
 import { player } from '../!utilities/player.js';
+import { combat } from '../!utilities/combat.js';
 
 const prompt = PromptSync();
 
@@ -62,19 +63,95 @@ uniformemente nas paredes do fundo da caverna. Será que você realmente deveria
         return trg;
 }
 
+export function caveTriggers() {
+        let trg;
+
+        trg = {
+                1: `Você desceu um longo lance de escada, minutos parecem ter se passado desde que iniciou a descida. Ao chegar ao 
+final, percebe que o que parecia, do lado de fora, o fim da caverna era, na verdade, apenas uma parede em um dos corredores de uma 
+galeria que se ramificava diferentes passagens menores... `,
+                2: `Você se espreme por entre uma passagem estreita de pedras desgastadas pela erosão natural do solo. As rochas 
+raspam no seu peito agressivamente, a fricção gera um desconforto crescente, a falta de espaço é brutalmente sufocante, sua garganta 
+se fecha por conta da constante inalação da poeira ancestral que originalmente repousava em seu leito sobre a rocha, agora perturbada 
+pela passagem de um forasteiro que não pertence a aquelas terras, o contingente restante dessas partículas sobrevoa maliciosamente 
+sobre seus olhos, esses que agora se irritam — um castigo severo por sua audácia! `,
+                3: `À frente, você avista um poço, um que parece deslocado e idêntico ao da superfície — para não dizer uma cópia 
+perfeita. É estranho, não o fato de um poço residir em um lugar tão profundo, mas sim, uma sensação ambígua, que começa a se instalar 
+em sua amígdala.`,
+                4: `Tochas podem ser avistadas, mais uma cabana se revela, destacando-se da escuridão. Por quê? Uma residência não deveria 
+habitar em tal localidade. Ela definitivamente é uma cópia das duas anteriores.`,
+                5: `Você não se agrada nem um pouco com aquilo que vê; é uma criatura que só pode ser descrita como uma rosácea de 
+catedral feita puramente de pele humana (completamente descolada da carcaça), músculos expostos e pulsantes, e tendões estranhamente 
+posicionados. Essa coisa é blasfema! Por sorte ela ainda não te viu.`
+        };
+
+        return trg;
+}
+
 export function triggerItem(id) {
         let it = item;
 
         if (player.class.toLowerCase() === 'mago') {
-                if (haT() === 1) {
-                        let i = haT();
+                let i;
+                if (d6() > 5) {
+                        i = haT();
                         it.addItem(i);
                         console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(i))}`));
+                        prompt(chalk.yellow.bold("Ao pegar o item, um objeto brilhante revelou-se de forma mística, como se estivesse à espera da sua chegada..."));
                 }
-                it.addItem(id);
-                console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(id))}`));
+                i = haT();
+                it.addItem(i);
+                console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(i))}`));
         } else {
                 it.addItem(id);
                 console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(id))}`));
         }
+}
+
+export async function enmOnGrass() {
+        prompt(chalk.yellow.italic(`De canto de olho, você vê uma sombra que se aproxima lentamente, tentando te surpreender; você se vira rapidamente...`));
+        await combat(haT());
+}
+
+export async function bossFight() {
+        prompt(chalk.yellow.italic(`Você se aproxima lentamente da criatura, tentando um ataque covarde pelas costas; cada passo te gera 
+uma ansiedade crescente, o coração palpita violentamente, a pressão é tamanha que pode implodi-lo. Quanto mais próximo, mais é perceptível 
+o cheiro putrefato de o que aparentam ser vários cadáveres.\n`));
+        prompt(chalk.yellow.italic(`Os grunhidos que essa criatura gera te deixam aflito — são de dor; animalescos. Vários pensamentos 
+pairam sua cabeça, e se não conseguir desferir o golpe, o que pode acontecer? E se... e se... sua artéria temporal superficial lateja 
+de agonia. Você avança tão lentamente quanto um leão passivamente observando sua presa — apenas esperando pelo momento certo para atacar.\n`));
+        prompt(chalk.yellow.italic(`Quanto mais próximo você fica do monstro; maior ele aparenta ser, seu corpo se estende por 4 metros 
+de altura — imponente, amedrontador. De repente, sua intuição decide que este é o momento certo para atacar; você se prepara, e disfere 
+uma investida contra aquele ser. Quando o ataque — este que parecia tão seguro, tão certeiro; alcança uma distancia próxima da espinha 
+dorsal; aquilo aperceber se de uma presença tão irrisória que havia passada desapercebida por todo esse tempo, VOCÊ.\n`));
+        prompt(chalk.yellow.italic(`Em uma única virada de cabeça; a aberração revela seus braços feitos de um emaranhado de músculos e 
+tendões, estes que estavam esse tempo todo escondidos sobre aquela pele decomposta; são inúmeros, seria impossível contar — até mesmo 
+para Leonardo Fibonacci. quatro de seus braços se responsabilizam por te atacar com tamanha força; que a primeira coisa que você consegue 
+ver após o ocorrido é o belo leito das rochas; você não morreu, mas deveria.\n`));
+        prompt(chalk.yellow.italic(`Aquilo gira a cabeça — em um estalo de pescoço; a qual estava à muito oculta, sua visão é horripilante, 
+você nunca viu nada igual antes, isto pode ser descrito apenas como: "Se o ser é, ele deve ter uma natureza totalmente separada do devir
+e do movimento. Pois, se dissermos que o que muda é, estamos unindo duas coisas contraditórias. Aquilo que realmente é, permanece idêntico 
+a si mesmo no mesmo estado. Se permitirmos que o ser mude, ele se torna não-ser no instante seguinte".\n`));
+        prompt(chalk.yellow.italic(`Você se encontra em pânico, nada poderia ter te preparado para aquilo que agora te encara — profundamente, 
+sem nunca desviar o olhar.\n`));
+        prompt(chalk.yellow.bold(`LUTE POR SUA VIDA!\n`));
+
+        await combat(3);
+        
+        process.stdout.write('\x1Bc');
+        prompt(chalk.yellow.italic(`A criatura cai no chão desfalecida; seu corpo libera os últimos espasmos de vida que ainda tinha, 
+convulsionando-se. Você sente um alívio percorrer todo o seu corpo; parece que tudo, por fim, acabou! A gratificação é tanta que você 
+desmaia de cansaço.\n`));
+        prompt(chalk.yellow.italic(`Quando acorda, você se vê sentado do lado de fora da cabana inicial. Já é de manhã — uma calorosa 
+fogueira te aquece. Ao olhar para a montanha ao longe, onde antes havia uma caverna, agora só há vegetação. O vento sopra, e a planície 
+dominada pela grama agora reflete um verde esmeralda; a sensação de paz te consome por dentro.\n`));
+        prompt(chalk.yellow.italic(`Minutos contemplativos se passam, até que um pensamento repentino surge em sua cabeça: "Como farei 
+para retornar ao meu reino?" Você olha em volta, com a esperança de achar algo que te ajude. Existe uma grande bolsa de couro recostada 
+na parede; ela parece completamente cheia. Esperançoso, você olha o que existe dentro dela — abençoada seja a sua sorte.\n`));
+        prompt(chalk.yellow.italic(`A bolsa está repleta de mantimentos, que durariam facilmente quatro estações. Além disso, há um 
+espólio valioso: a cabeça da criatura. Este será o seu trunfo, aquilo que mostrará ao rei quando for recebido no reino.\n`));
+        prompt(chalk.yellow.italic(`Então, você fecha a bolsa, a amarra em suas costas e apaga a gentil fogueira que lhe ofereceu 
+calor. Vislumbra, em tom de despedida, uma última vez o lugar que quase ceifou sua vida, vira-se e segue rumo ao reino que o aguarda.\n`));
+
+        return true;
 }

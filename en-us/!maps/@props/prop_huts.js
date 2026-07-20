@@ -51,6 +51,16 @@ completely stripped of meaning. You question the purpose of an empty dwelling un
 
         console.log(chalk.yellow.bold(`from one of the dark corners`) + chalk.yellow.italic(`, you see something approaching swiftly—it looks hostile...`));
         prompt();
-        
+
         await combat(haT())
+}
+
+export async function cave_hut() {
+        console.log(chalk.yellow.italic(`You force the wooden door in an attempt to enter the cabin; despite the heavy pressure, the door won't budge—it is 
+as if something inside is blocking the way, or perhaps the cabin isn't actually a cabin at all. As a whirlwind of thoughts races through
+your mind, you hear footsteps behind you; you spin around quickly, only to find a skeleton charging furiously toward you. It manages to 
+land a powerful blow—you narrowly escape, thanks to your blessed reflexes! It is out for your head!`));
+        prompt();
+
+        await combat(1);
 }

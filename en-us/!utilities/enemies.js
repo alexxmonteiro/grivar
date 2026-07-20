@@ -90,6 +90,8 @@ class Enemies {
                 larm_dmg_base: 1.4,
                 rarm_dmg_base: 1.6,
                 legs_add_base: 0.28,
+                is_enraged: false,
+
                 checkStatus() {
                     let missing_parts = 0;
                     if (!this.larm) missing_parts++;
@@ -122,6 +124,68 @@ class Enemies {
                     return (this.rarm_dmg_base + this.legs_add_dmg()) * rage_buff;
                 }
             });
+        } else if (id === 3) {
+            Object.assign(this.entities[id], {
+                larm: true,
+                rarm: true,
+
+                head: true,
+                larm_a: true, larm_b: true, larm_c: true, larm_d: true, larm_e: true,
+                rarm_a: true, rarm_b: true, rarm_c: true, rarm_d: true, rarm_e: true,
+
+                head_hp: 25.0,
+                larm_a_hp: 8.5, larm_b_hp: 7.5, larm_c_hp: 9.5, larm_d_hp: 9.0, larm_e_hp: 7.0,
+                rarm_a_hp: 8.5, rarm_b_hp: 7.5, rarm_c_hp: 9.5, rarm_d_hp: 9.0, rarm_e_hp: 7.0,
+
+                larm_a_dmg_base: 1.0, larm_b_dmg_base: 0.7, larm_c_dmg_base: 2.0, larm_d_dmg_base: 1.5, larm_e_dmg_base: 1.3,
+                rarm_a_dmg_base: 1.0, rarm_b_dmg_base: 0.7, rarm_c_dmg_base: 2.0, rarm_d_dmg_base: 1.5, rarm_e_dmg_base: 1.3,
+
+                is_enraged: false,
+                parts_destructed: 0,
+
+                checkStatus() {
+                    let missing_parts = 0;
+                    const parts = ['larm_a', 'larm_b', 'larm_c', 'larm_d', 'larm_e', 'rarm_a', 'rarm_b', 'rarm_c', 'rarm_d', 'rarm_e'];
+
+                    parts.forEach(part => {
+                        if (!this[part]) missing_parts++;
+                    });
+
+                    this.parts_destructed = missing_parts;
+                    if (missing_parts > 0) {
+                        this.is_enraged = true;
+                        this.head_hp -= (missing_parts * 0.5);
+                    }
+                },
+
+                larm_dmg() {
+                    if (!this.larm) return null;
+                    this.checkStatus();
+                    let rage_buff = this.is_enraged ? 1.3 : 1.0;
+
+                    return {
+                        a: this.larm_a ? this.larm_a_dmg_base * rage_buff : 0,
+                        b: this.larm_b ? this.larm_b_dmg_base * rage_buff : 0,
+                        c: this.larm_c ? this.larm_c_dmg_base * rage_buff : 0,
+                        d: this.larm_d ? this.larm_d_dmg_base * rage_buff : 0,
+                        e: this.larm_e ? this.larm_e_dmg_base * rage_buff : 0
+                    };
+                },
+
+                rarm_dmg() {
+                    if (!this.rarm) return null;
+                    this.checkStatus();
+                    let rage_buff = this.is_enraged ? 1.3 : 1.0;
+
+                    return {
+                        a: this.rarm_a ? this.rarm_a_dmg_base * rage_buff : 0,
+                        b: this.rarm_b ? this.rarm_b_dmg_base * rage_buff : 0,
+                        c: this.rarm_c ? this.rarm_c_dmg_base * rage_buff : 0,
+                        d: this.rarm_d ? this.rarm_d_dmg_base * rage_buff : 0,
+                        e: this.rarm_e ? this.rarm_e_dmg_base * rage_buff : 0
+                    };
+                },
+            });
         }
     }
 
@@ -152,6 +216,49 @@ class Enemies {
             }
         }
     }
+
+    bossAttack() {
+        const boss = this.entities[3];
+        if (!boss) return null;
+
+        boss.checkStatus();
+        let rage_buff = boss.is_enraged ? 1.3 : 1.0;
+
+        const parts = [
+            'larm_a', 'larm_b', 'larm_c', 'larm_d', 'larm_e',
+            'rarm_a', 'rarm_b', 'rarm_c', 'rarm_d', 'rarm_e'
+        ];
+
+        let attackDamage = {};
+
+        parts.forEach(part => {
+            attackDamage[part] = boss[part]
+                ? boss[`${part}_dmg_base`] * rage_buff
+                : 0;
+        });
+
+        return attackDamage;
+    }
+
+    bossLifePoints() {
+        const enemy = this.entities[3];
+        if (!enemy) return null;
+
+        let lifePoints = {
+            head: enemy.head_hp || 0
+        };
+
+        const parts = [
+            'larm_a', 'larm_b', 'larm_c', 'larm_d', 'larm_e',
+            'rarm_a', 'rarm_b', 'rarm_c', 'rarm_d', 'rarm_e'
+        ];
+
+        parts.forEach(part => {
+            lifePoints[part] = enemy[`${part}_hp`] || 0;
+        });
+
+        return lifePoints;
+    }
 }
 
 
@@ -164,4 +271,8 @@ enemies.registerEnemies(1, {
 
 enemies.registerEnemies(2, {
     name: "JJ"
+});
+
+enemies.registerEnemies(3, {
+    name: "Receptacle of a thousand hands"
 });

@@ -44,13 +44,16 @@ ROLL A D6 TO DETERMINE YOUR CHANCE OF SUCCESS!`));
         if (player.per + dice >= 6) {
             console.log(chalk.yellow.italic("Incredibly... the rope didn't snap when pulled up from the bottom of the well!"));
             if (player.class.toLowerCase() === 'mage') {
-                if (haT() === 1) {
-                    let i = haT();
+                let i;
+                if (d6() > 4) {
+                    i = haT();
                     it.addItem(i);
                     console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(i))}`));
+                    prompt(chalk.yellow.bold("As you picked up the item, a glowing object mystically revealed itself, as if it had been waiting for your arrival..."));
                 }
-                it.addItem(id);
-                console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(id))}`));
+                i = haT();
+                it.addItem(i);
+                console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(i))}`));
             } else {
                 it.addItem(id);
                 console.log(chalk.yellow.italic(`You found ${chalk.white.bold(it.itemName(id))}`));

@@ -43,14 +43,17 @@ de chegar no fim. ROLE UM D6 PARA DETERMINAR CHANCE DE SUCESSO!`));
         console.clear();
         if (player.per + dice >= 6) {
             console.log(chalk.yellow.italic("Incrivelmente... a corda não arrebentou ao ser puxada do fundo do poço!"));
-            if (player.class.toLowerCase() === 'mage') {
-                if (haT() === 1) {
-                    let i = haT();
+            if (player.class.toLowerCase() === 'mago') {
+                let i;
+                if (d6() > 5) {
+                    i = haT();
                     it.addItem(i);
                     console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(i))}`));
+                    prompt(chalk.yellow.bold("Ao pegar o item, um objeto brilhante revelou-se de forma mística, como se estivesse à espera da sua chegada..."));
                 }
-                it.addItem(id);
-                console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(id))}`));
+                i = haT();
+                it.addItem(i);
+                console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(i))}`));
             } else {
                 it.addItem(id);
                 console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(id))}`));

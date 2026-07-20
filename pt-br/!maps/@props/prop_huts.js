@@ -55,3 +55,14 @@ há dentro, um espaço completamente esvaziado de significado, você se question
 
         await combat(haT())
 }
+
+export async function cave_hut() {
+        console.log(chalk.yellow.italic(`Você força a porta de madeira em uma tentativa de entrar na cabana; Por mais que sendo pressionada 
+com força, a porta não se abre, é como se algo estivesse dentro bloqueando a passagem, ou talvez a cabana nem ao menos seja, de fato 
+uma cabana. Enquanto você é bombardeado por uma nuvem de pensamentos, escuta passos atrás de você, rapidamente você se vira, apenas para
+se deparar com um esqueleto correndo em sua direção furiosamente. Ele consegue desferir um golpe poderoso, você escapa por pouco! 
+Graças a seus abençoados reflexos. Ele quer a sua cabeça!`));
+        prompt();
+
+        await combat(1);
+}
