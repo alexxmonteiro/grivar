@@ -25,7 +25,7 @@ export async function combat(enemy_id) {
     const maxParts = isBoss ? 6 : 3; 
 
     process.stdout.write('\x1Bc');
-    prompt(chalk.yellow.italic(`A ${chalk.white.bold(enemies.enemyName(enemy_id).toUpperCase())} IS IN COMBAT WITH YOU!`));
+    prompt(chalk.yellow.italic(`${chalk.white.bold(enemies.enemyName(enemy_id).toUpperCase())} IS IN COMBAT WITH YOU!`));
 
     while (enm && enm.parts_destructed < maxParts && player.hp > 0) {
         let playerFase = 0;

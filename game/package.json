@@ -5,7 +5,7 @@
     "prompt-sync": "^4.2.0"
   },
   "name": "grivar",
-  "version": "1.0.0",
+  "version": "1.2.4",
   "type": "module",
   "main": "main.js",
   "scripts": {
