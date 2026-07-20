@@ -26,8 +26,13 @@ class Requires{
         switch(direction.toLowerCase()) {
             case 'n': vMov--; break;
             case 's': vMov++; break;
+<<<<<<< HEAD
             case 'w': hMov--; break;
             case 'e': hMov++; break;
+=======
+            case 'o': hMov--; break;
+            case 'l': hMov++; break;
+>>>>>>> 14a6a01 (grivar 1.1.1)
             default: return;
         }
 
@@ -57,11 +62,19 @@ class Requires{
         }
 
         if(player.colunm-1 >= 0 && map[player.line][player.colunm - 1] >= 1){
+<<<<<<< HEAD
             option.push('W');
         }
 
         if(player.colunm+1 < map.length && map[player.line][player.colunm + 1] >= 1){
             option.push('E');
+=======
+            option.push('O');
+        }
+
+        if(player.colunm+1 < map.length && map[player.line][player.colunm + 1] >= 1){
+            option.push('L');
+>>>>>>> 14a6a01 (grivar 1.1.1)
         }
 
         return option;
@@ -125,7 +138,11 @@ let mapOne = [
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
 ];
 
+<<<<<<< HEAD
 let mapTwo = [
+=======
+let mapTwo = [//mod map
+>>>>>>> 14a6a01 (grivar 1.1.1)
     [0,0,12,0,0,0,13,0,0,0,0,0,0],
     [0,0,1,0,0,0,7,1,1,8,0,0,0],
     [0,0,6,0,0,0,1,0,0,0,0,0,0],
@@ -158,18 +175,36 @@ let mapThr = [
 let map = requires.chooseMap();
 let player = {line: 11, colunm: 6};
 
+<<<<<<< HEAD
 export async function the_way() {
     process.stdout.write('\x1Bc');
+=======
+<<<<<<<< HEAD:pt-br/!maps/the_way.js
+export async function the_way(){
+    process.stdout.write('\x1Bc');
+========
+export async function the_way() {
+>>>>>>>> 14a6a01 (grivar 1.1.1):en-us/!maps/the_way.js
+>>>>>>> 14a6a01 (grivar 1.1.1)
     the_way_tc();
     while (true) {
         let input;
         let options = requires.enableOptions();
 
+<<<<<<< HEAD
         input = prompt(chalk.white.italic("Where you going? ")+chalk.yellow.bold(`(${options})`));
+=======
+<<<<<<<< HEAD:pt-br/!maps/the_way.js
+        input = prompt(chalk.white.italic("Para onde você vai? ")+chalk.yellow.bold(`(${options})`));
+========
+        input = prompt(chalk.white.italic("Where you going? ")+chalk.yellow.bold(`(${options})`));
+>>>>>>>> 14a6a01 (grivar 1.1.1):en-us/!maps/the_way.js
+>>>>>>> 14a6a01 (grivar 1.1.1)
         console.clear();
         
         let playerTile = requires.move(input); 
 
+<<<<<<< HEAD
         if (playerTile !== undefined) {
             requires.activeTrigger(playerTile);
             requires.pickUpItem(playerTile);
@@ -179,6 +214,14 @@ export async function the_way() {
             if(playerTile === 13){
                 break;
             }
+=======
+        requires.activeTrigger(playerTile);
+        requires.pickUpItem(playerTile);
+        await requires.well_Prop(playerTile); 
+        await requires.huts_Prop(playerTile);
+        if(playerTile === 13){
+            break;
+>>>>>>> 14a6a01 (grivar 1.1.1)
         }
     }
 }

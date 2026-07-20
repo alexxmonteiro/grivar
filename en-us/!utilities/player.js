@@ -45,12 +45,20 @@ export class Player {
         } else if (n == 3) { //Ranger
             this.#class = 'Ranger'
             this.#hp = 7.5;
+<<<<<<< HEAD
             this.#atk = 1.7;
+=======
+            this.#atk = 2.0;
+>>>>>>> 14a6a01 (grivar 1.1.1)
             this.#per = 2.0;
         } else if (n == 4) { //Paladin
             this.#class = 'Paladin'
             this.#hp = 15.0;
+<<<<<<< HEAD
             this.#atk = 2.0;
+=======
+            this.#atk = 3.0;
+>>>>>>> 14a6a01 (grivar 1.1.1)
             this.#per = 0.0;
         } else {
             return false;
@@ -84,6 +92,10 @@ export class Player {
 }
 
 export const player = new Player();
+<<<<<<< HEAD
+=======
+player.setStats(2);
+>>>>>>> 14a6a01 (grivar 1.1.1)
 
 export function characterSelect() {
     let n;

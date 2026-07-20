@@ -11,10 +11,14 @@ const prompt = PromptSync();
 const dice = d6();
 export async function well_triggerProp() {
     let it = item;
-    console.log(chalk.yellow.italic(`Você encontrou um poço, a água é escassa, sobre o pouco restante é possível ver um brilho 
-espectral que se destaca de seu entorno, você sente um desejo irresistível de recuperar o que quer que esteja no fundo! O poço 
-possui um mecanismo que segura um balde preso em uma corda, esta parece frágil, e desgastada pelo tempo, ela pode romper antes 
-de chegar no fim. ROLE UM D6 PARA DETERMINAR CHANCE DE SUCESSO!`));
+<<<<<<< HEAD
+    console.log(chalk.yellow.italic(`Você encontrou um poço, a água é escassa, sobre o pouco restante é possível ver um brilho espectral que se destaca de seu entorno, você sente um desejo irresistível de recuperar o que quer que esteja no fundo! O poço possui um mecanismo que segura um balde preso em uma corda, esta parece frágil, e desgastada pelo tempo, ela pode romper antes de chegar no fim. ROLE UM D6 PARA DETERMINAR CHANCE DE SUCESSO!`));
+=======
+    console.log(chalk.yellow.italic(`Você encontrou um poço; a água é escassa, e um brilho espectral — destacando-se ao redor — brilha no 
+pouco que resta. Você sente um desejo irresistível de recuperar o que quer que esteja no fundo! O poço possui um mecanismo que segura 
+um balde preso a uma corda; a corda parece frágil e gasta pelo tempo, e pode romper antes de chegar ao fundo. 
+ROLE UM D6 PARA DETERMINAR SUA CHANCE DE SUCESSO!`));
+>>>>>>> 14a6a01 (grivar 1.1.1)
     prompt();
 
     function rollDice() {
@@ -43,6 +47,7 @@ de chegar no fim. ROLE UM D6 PARA DETERMINAR CHANCE DE SUCESSO!`));
         console.clear();
         if (player.per + dice >= 6) {
             console.log(chalk.yellow.italic("Incrivelmente... a corda não arrebentou ao ser puxada do fundo do poço!"));
+<<<<<<< HEAD
             if (player.class.toLowerCase() === 'mago') {
                 let i;
                 if (d6() > 5) {
@@ -60,6 +65,12 @@ de chegar no fim. ROLE UM D6 PARA DETERMINAR CHANCE DE SUCESSO!`));
             }
         } else {
             console.log(chalk.yellow.italic("Como o esperado... a corda não conseguiu chegar nem à metade do caminho, ela se rompeu! O que havia no fundo do poço continuara a ser um mistério..."));
+=======
+            it.addItem(id);
+            console.log(chalk.yellow.italic(`Você encontrou ${chalk.white.bold(it.itemName(id))}`));
+        } else {
+            console.log(chalk.yellow.italic("Como esperado... a corda não chegou nem na metade do caminho; ela arrebentou! O que estava no fundo do poço permaneceu um mistério..."));
+>>>>>>> 14a6a01 (grivar 1.1.1)
         }
     }
 

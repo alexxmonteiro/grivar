@@ -89,12 +89,15 @@ function dmgOnEnemy(part) {
         dmg += ((1 / 4) * player.hp);
     }
 
+<<<<<<< HEAD
     if(player.class.toLowerCase() === 'mago' || player.class.toLowerCase() === 'arqueiro'){
         if(['larm', 'rarm', 'lleg', 'rleg'].includes(internalPart.toLowerCase())){
             dmg += player.per * 0.1;
         }
     }
 
+=======
+>>>>>>> 14a6a01 (grivar 1.1.1)
     enm[`${internalPart}_hp`] = Math.max(0, enm[`${internalPart}_hp`] - dmg);
     if (critStike > 8) {
         console.log(chalk.white.italic(`A C E R T O  C R Í T I C O \n`) + chalk.yellow.bold(`- ${dmg.toFixed(1)}`));
