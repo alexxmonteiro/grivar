@@ -24,7 +24,6 @@ function enableBodyPart() {
 export async function battleFase() {
     process.stdout.write('\x1Bc');
     let bPart;
-    let cFace;
     let options = enableBodyPart();
     bPart = prompt(chalk.white.italic(`Which part of the body? `) + chalk.yellow.bold(`(${options}) `));
     while (!options.includes(bPart.toUpperCase())) {
@@ -75,25 +74,22 @@ function dmgOnEnemy(part) {
         dmg += ((1 / 4) * player.hp);
     }
 
-<<<<<<< HEAD
     if (player.class.toLowerCase() === 'mage' || player.class.toLowerCase() === 'ranger') {
         if (['larm', 'rarm', 'lleg', 'rleg'].includes(part.toLowerCase())) {
             dmg += player.per * 0.1;
         }
     }
 
-=======
->>>>>>> 14a6a01 (grivar 1.1.1)
     enm[`${part}_hp`] = Math.max(0, enm[`${part}_hp`] - dmg);
     if (critStike > 8) {
-        console.log(chalk.white.italic(`C R I T I C A L  H I T \n`) + chalk.yellow.bold(`- ${dmg.toFixed(1)}`));
+        console.log(chalk.white.italic(`C R I T I C A L   H I T \n`) + chalk.yellow.bold(`- ${dmg.toFixed(1)}`));
     } else {
         console.log(chalk.yellow.bold(`- ${(dmg.toFixed(1))}`));
     }
 
     if (enm[part] === true && enm[`${part}_hp`] <= 0) {
         enm[part] = false;
-        console.log(chalk.white.italic(`You destroied ${chalk.red.bold(part.toUpperCase())}`));
+        console.log(chalk.white.italic(`You destroyed ${chalk.red.bold(part.toUpperCase())}`));
 
         if (part === 'lleg' || part === 'rleg') {
             enm['legs_add_base'] = 0;

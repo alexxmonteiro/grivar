@@ -44,30 +44,19 @@ class Inventory{
 }   
 
 export var item = new Inventory(); 
+
 item.registerItem(1, {
-<<<<<<< HEAD
-    name: "Agua Benta",
-=======
     name: "Água Benta",
->>>>>>> 14a6a01 (grivar 1.1.1)
-    type: "Trhowable",
+    type: "Throwable", 
     description: "It is one of the sacramentals: sacred signs that, through the prayer of the Church, prepare the heart to receive God's grace and help combat evil.",
     damage: 4,
     quantity: 0
 });
 
 item.registerItem(2, {
-<<<<<<< HEAD
-    name: "Pocao de Vida",
-=======
     name: "Poção de Vida",
->>>>>>> 14a6a01 (grivar 1.1.1)
-    type: "Cosumable",
+    type: "Consumable", 
     description: "A mysterious magical liquid that heals even the deepest scars.",
     lifeRegen: 3,
     quantity: 0
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 14a6a01 (grivar 1.1.1)

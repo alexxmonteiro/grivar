@@ -81,7 +81,6 @@ class Enemies {
                 lleg: true,
                 rleg: true,
                 parts_destructed: 0,
-<<<<<<< HEAD
                 head_hp: 5.5,
                 torso_hp: 22,
                 larm_hp: 6.5,
@@ -93,17 +92,6 @@ class Enemies {
                 legs_add_base: 0.28,
                 is_enraged: false,
 
-=======
-                head_hp: 3,
-                torso_hp: 14,
-                larm_hp: 4,
-                rarm_hp: 4,
-                lleg_hp: 4.5,
-                rleg_hp: 4.5,
-                larm_dmg_base: 0.5,
-                rarm_dmg_base: 1.0,
-                legs_add_base: 0.2,
->>>>>>> 14a6a01 (grivar 1.1.1)
                 checkStatus() {
                     let missing_parts = 0;
                     if (!this.larm) missing_parts++;
@@ -136,12 +124,10 @@ class Enemies {
                     return (this.rarm_dmg_base + this.legs_add_dmg()) * rage_buff;
                 }
             });
-<<<<<<< HEAD
         } else if (id === 3) {
             Object.assign(this.entities[id], {
                 larm: true,
                 rarm: true,
-
                 head: true,
                 larm_a: true, larm_b: true, larm_c: true, larm_d: true, larm_e: true,
                 rarm_a: true, rarm_b: true, rarm_c: true, rarm_d: true, rarm_e: true,
@@ -199,8 +185,6 @@ class Enemies {
                     };
                 },
             });
-=======
->>>>>>> 14a6a01 (grivar 1.1.1)
         }
     }
 
@@ -231,7 +215,6 @@ class Enemies {
             }
         }
     }
-<<<<<<< HEAD
 
     bossAttack() {
         const boss = this.entities[3];
@@ -277,12 +260,6 @@ class Enemies {
     }
 }
 
-=======
-}
-
-
-
->>>>>>> 14a6a01 (grivar 1.1.1)
 export const enemies = new Enemies();
 
 enemies.registerEnemies(1, {
@@ -291,11 +268,8 @@ enemies.registerEnemies(1, {
 
 enemies.registerEnemies(2, {
     name: "JJ"
-<<<<<<< HEAD
 });
 
 enemies.registerEnemies(3, {
     name: "Receptáculo de mil mãos"
-=======
->>>>>>> 14a6a01 (grivar 1.1.1)
 });

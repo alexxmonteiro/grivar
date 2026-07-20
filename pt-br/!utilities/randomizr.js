@@ -12,13 +12,5 @@ export const d6 = () => roll(1, 6);
 export const d5 = () => roll(1, 5);
 export const d4 = () => roll(1, 4);
 export const d3 = () => roll(1, 3);
-<<<<<<< HEAD
-<<<<<<< HEAD:pt-br/!utilities/randomizr.js
 export const mapSelect = () => choose(1, 3);
-=======
-export const mapSelect = choose(1, 3);
->>>>>>> 1481cce (grivar 1.1.0):!utilities/randomizr.js
-=======
-export const mapSelect = choose(1, 3);
->>>>>>> 14a6a01 (grivar 1.1.1)
 export const haT = () => hat(1, 2);

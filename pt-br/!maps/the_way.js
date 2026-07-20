@@ -8,21 +8,14 @@ import { fhut_triggerProp, shut_triggerProp } from "./@props/prop_huts.js";
 
 const prompt = PromptSync();
 
-class Requires{
+class Requires {
     constructor(){}
 
     chooseMap(){
-<<<<<<< HEAD
         switch (mapSelect()) {
             case 1: return mapOne; 
             case 2: return mapTwo; 
             case 3: return mapThr; 
-=======
-        switch (mapSelect) {
-            case 1: return mapOne; break;
-            case 2: return mapTwo; break;
-            case 3: return mapThr; break;
->>>>>>> 14a6a01 (grivar 1.1.1)
         }
     }
 
@@ -118,7 +111,6 @@ class Requires{
 const requires = new Requires();
 
 let mapOne = [
-<<<<<<< HEAD
     [0,0,0,0,0,0,13,0,0,0,0,0,0],
     [0,0,0,0,0,0,7,0,0,0,0,0,0],
     [0,0,0,0,0,0,1,0,0,0,0,0,0],
@@ -127,28 +119,14 @@ let mapOne = [
     [0,0,0,0,0,0,1,0,0,1,0,0,0],
     [0,0,0,0,10,0,5,1,1,1,1,12,0],
     [0,0,0,0,1,0,1,0,0,0,0,0,0],
-=======
-    [0,0,0,0,0,0,1,0,0,0,0,0,0],
-    [0,0,0,0,0,0,1,0,0,0,0,0,0],
-    [0,0,0,0,0,0,6,0,0,0,0,0,0],
-    [0,0,0,0,0,0,1,0,0,0,0,0,0],
-    [0,0,0,0,0,0,1,0,0,8,0,0,0],
-    [0,0,0,0,0,0,1,0,0,1,0,0,0],
-    [0,0,0,0,10,0,5,1,1,1,1,12,0],
-    [0,0,0,0,1,0,0,0,0,0,0,0,0],
->>>>>>> 14a6a01 (grivar 1.1.1)
     [0,11,1,1,1,1,4,0,0,0,0,0,0],
     [0,0,0,1,0,0,1,0,0,0,0,0,0],
     [0,0,0,9,0,0,3,0,0,0,0,0,0],
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
 ];
 
-let mapTwo = [//mod map
-<<<<<<< HEAD
+let mapTwo = [
     [0,0,12,0,0,0,13,0,0,0,0,0,0],
-=======
-    [0,0,12,0,0,0,1,0,0,0,0,0,0],
->>>>>>> 14a6a01 (grivar 1.1.1)
     [0,0,1,0,0,0,7,1,1,8,0,0,0],
     [0,0,6,0,0,0,1,0,0,0,0,0,0],
     [0,0,1,0,0,0,1,0,0,0,0,0,0],
@@ -163,11 +141,7 @@ let mapTwo = [//mod map
 ];
 
 let mapThr = [
-<<<<<<< HEAD
     [0,0,0,0,0,0,13,0,0,0,0,12,0],
-=======
-    [0,0,0,0,0,0,1,0,0,0,0,12,0],
->>>>>>> 14a6a01 (grivar 1.1.1)
     [0,0,0,0,0,0,7,0,0,0,0,1,0],
     [0,8,1,1,1,1,1,0,0,0,0,6,0],
     [0,0,0,1,0,0,1,0,0,0,0,1,0],
@@ -184,30 +158,14 @@ let mapThr = [
 let map = requires.chooseMap();
 let player = {line: 11, colunm: 6};
 
-<<<<<<< HEAD
-<<<<<<<< HEAD:pt-br/!maps/the_way.js
 export async function the_way(){
     process.stdout.write('\x1Bc');
-========
-export async function the_way() {
->>>>>>>> 14a6a01 (grivar 1.1.1):en-us/!maps/the_way.js
-=======
-export async function the_way() {
->>>>>>> 14a6a01 (grivar 1.1.1)
     the_way_tc();
     while (true) {
         let input;
         let options = requires.enableOptions();
 
-<<<<<<< HEAD
-<<<<<<<< HEAD:pt-br/!maps/the_way.js
         input = prompt(chalk.white.italic("Para onde você vai? ")+chalk.yellow.bold(`(${options})`));
-========
-        input = prompt(chalk.white.italic("Where you going? ")+chalk.yellow.bold(`(${options})`));
->>>>>>>> 14a6a01 (grivar 1.1.1):en-us/!maps/the_way.js
-=======
-        input = prompt(chalk.white.italic("Para onde você vai? ")+chalk.yellow.bold(`(${options})`));
->>>>>>> 14a6a01 (grivar 1.1.1)
         console.clear();
         
         let playerTile = requires.move(input); 
@@ -216,11 +174,8 @@ export async function the_way() {
         requires.pickUpItem(playerTile);
         await requires.well_Prop(playerTile); 
         await requires.huts_Prop(playerTile);
-<<<<<<< HEAD
         if(playerTile === 13){
             break;
         }
-=======
->>>>>>> 14a6a01 (grivar 1.1.1)
     }
 }

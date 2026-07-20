@@ -8,10 +8,10 @@ import { fhut_triggerProp, shut_triggerProp } from "./@props/prop_huts.js";
 
 const prompt = PromptSync();
 
-class Requires{
-    constructor(){}
+class Requires {
+    constructor() {}
 
-    chooseMap(){
+    chooseMap() {
         switch (mapSelect()) {
             case 1: return mapOne; 
             case 2: return mapTwo; 
@@ -19,25 +19,20 @@ class Requires{
         }
     }
 
-    move(direction){
+    move(direction) {
         let vMov = player.line;
         let hMov = player.colunm;
 
         switch(direction.toLowerCase()) {
             case 'n': vMov--; break;
             case 's': vMov++; break;
-<<<<<<< HEAD
             case 'w': hMov--; break;
             case 'e': hMov++; break;
-=======
-            case 'o': hMov--; break;
-            case 'l': hMov++; break;
->>>>>>> 14a6a01 (grivar 1.1.1)
             default: return;
         }
 
-        if(vMov >= 0 && vMov < map.length && hMov >= 0 && hMov < map[0].length){
-            if(map[vMov][hMov] >= 1){
+        if (vMov >= 0 && vMov < map.length && hMov >= 0 && hMov < map[0].length) {
+            if (map[vMov][hMov] >= 1) {
                 let targetTile = map[vMov][hMov];
 
                 map[player.line][player.colunm] = 1;
@@ -50,37 +45,29 @@ class Requires{
         }
     }
 
-    enableOptions(){
+    enableOptions() {
         let option = [];
 
-        if(player.line-1 >= 0 && map[player.line - 1][player.colunm] >= 1){
+        if (player.line - 1 >= 0 && map[player.line - 1][player.colunm] >= 1) {
             option.push('N');
         }
 
-        if(player.line+1 < map.length && map[player.line + 1][player.colunm] >= 1){
+        if (player.line + 1 < map.length && map[player.line + 1][player.colunm] >= 1) {
             option.push('S');
         }
 
-        if(player.colunm-1 >= 0 && map[player.line][player.colunm - 1] >= 1){
-<<<<<<< HEAD
+        if (player.colunm - 1 >= 0 && map[player.line][player.colunm - 1] >= 1) {
             option.push('W');
         }
 
-        if(player.colunm+1 < map.length && map[player.line][player.colunm + 1] >= 1){
+        if (player.colunm + 1 < map[0].length && map[player.line][player.colunm + 1] >= 1) {
             option.push('E');
-=======
-            option.push('O');
-        }
-
-        if(player.colunm+1 < map.length && map[player.line][player.colunm + 1] >= 1){
-            option.push('L');
->>>>>>> 14a6a01 (grivar 1.1.1)
         }
 
         return option;
     }
 
-    activeTrigger(playerTile){
+    activeTrigger(playerTile) {
         if (playerTile >= 3 && playerTile <= 7) {
             let triggerList = triggers(); 
             let idTrigger = playerTile - 2; 
@@ -92,13 +79,13 @@ class Requires{
         }
     }
 
-    pickUpItem(playerTile){
+    pickUpItem(playerTile) {
         if (playerTile === 8 || playerTile === 10) {
             let idItem;
     
-            if(playerTile === 8){
+            if (playerTile === 8) {
                 idItem = 1;
-            }else if(playerTile === 10){
+            } else if (playerTile === 10) {
                 idItem = 2;
             }
     
@@ -107,20 +94,21 @@ class Requires{
         }
     }
 
-    async well_Prop(playerTile){
-        if(playerTile === 9){
+    async well_Prop(playerTile) {
+        if (playerTile === 9) {
             await well_triggerProp(); 
         }
     }
 
-    async huts_Prop(playerTile){
-        if(playerTile === 11){
+    async huts_Prop(playerTile) {
+        if (playerTile === 11) {
             await fhut_triggerProp();
-        }else if(playerTile === 12){
+        } else if (playerTile === 12) {
             await shut_triggerProp();
         }
     }
 }
+
 const requires = new Requires();
 
 let mapOne = [
@@ -138,11 +126,7 @@ let mapOne = [
     [0,0,0,0,0,0,2,0,0,0,0,0,0]
 ];
 
-<<<<<<< HEAD
 let mapTwo = [
-=======
-let mapTwo = [//mod map
->>>>>>> 14a6a01 (grivar 1.1.1)
     [0,0,12,0,0,0,13,0,0,0,0,0,0],
     [0,0,1,0,0,0,7,1,1,8,0,0,0],
     [0,0,6,0,0,0,1,0,0,0,0,0,0],
@@ -175,53 +159,27 @@ let mapThr = [
 let map = requires.chooseMap();
 let player = {line: 11, colunm: 6};
 
-<<<<<<< HEAD
 export async function the_way() {
     process.stdout.write('\x1Bc');
-=======
-<<<<<<<< HEAD:pt-br/!maps/the_way.js
-export async function the_way(){
-    process.stdout.write('\x1Bc');
-========
-export async function the_way() {
->>>>>>>> 14a6a01 (grivar 1.1.1):en-us/!maps/the_way.js
->>>>>>> 14a6a01 (grivar 1.1.1)
     the_way_tc();
     while (true) {
         let input;
         let options = requires.enableOptions();
 
-<<<<<<< HEAD
-        input = prompt(chalk.white.italic("Where you going? ")+chalk.yellow.bold(`(${options})`));
-=======
-<<<<<<<< HEAD:pt-br/!maps/the_way.js
-        input = prompt(chalk.white.italic("Para onde você vai? ")+chalk.yellow.bold(`(${options})`));
-========
-        input = prompt(chalk.white.italic("Where you going? ")+chalk.yellow.bold(`(${options})`));
->>>>>>>> 14a6a01 (grivar 1.1.1):en-us/!maps/the_way.js
->>>>>>> 14a6a01 (grivar 1.1.1)
+        input = prompt(chalk.white.italic("Where you going? ") + chalk.yellow.bold(`(${options})`));
         console.clear();
         
         let playerTile = requires.move(input); 
 
-<<<<<<< HEAD
         if (playerTile !== undefined) {
             requires.activeTrigger(playerTile);
             requires.pickUpItem(playerTile);
             await requires.well_Prop(playerTile); 
             await requires.huts_Prop(playerTile);
             
-            if(playerTile === 13){
+            if (playerTile === 13) {
                 break;
             }
-=======
-        requires.activeTrigger(playerTile);
-        requires.pickUpItem(playerTile);
-        await requires.well_Prop(playerTile); 
-        await requires.huts_Prop(playerTile);
-        if(playerTile === 13){
-            break;
->>>>>>> 14a6a01 (grivar 1.1.1)
         }
     }
 }
