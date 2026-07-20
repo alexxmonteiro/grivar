@@ -7,7 +7,7 @@ const prompt = PromptSync();
 
 console.log(chalk.yellow.italic("1 - EN-US\n"+"2 - PT-BR\n"));
 var translation = Number(prompt());
-while(translation < 1 || translation > 2){
+while(![1, 2].includes(translation)){
     console.log(chalk.red.bold("ERROR:\n"+"1 - EN-US\n"+"2 - PT-BR\n"));
     translation = Number(prompt());
 }

@@ -9,7 +9,7 @@ export default function mainMenu() {
     console.log(chalk.white.italic("JOGAR"));
     console.log(chalk.white.italic("SAIR"));
     n = Number(prompt("Selecione uma opção (1 - JOGAR, 2 - SAIR): "));
-    while (n < 1 || n > 2) {
+    while (![1, 2].includes(n)) {
         n = Number(prompt(chalk.red.bold("ERRO: selecione uma opção (1 - JOGAR, 2 - SAIR): ")));
     }
     console.clear();
