@@ -58,8 +58,5 @@ item.registerItem(2, {
     description: "A mysterious magical liquid that heals even the deepest scars.",
     lifeRegen: 3,
     quantity: 0
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 14a6a01 (grivar 1.1.1)
+
