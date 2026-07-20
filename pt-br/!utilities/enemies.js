@@ -267,7 +267,7 @@ enemies.registerEnemies(1, {
 });
 
 enemies.registerEnemies(2, {
-    name: "JJ"
+    name: "Sombra"
 });
 
 enemies.registerEnemies(3, {

@@ -94,7 +94,7 @@ export function characterSelect() {
     console.log("------------------");
     n = Number(prompt("Select a character: "));
 
-    while (n < 1 || n > 4) {
+    while (![1, 2, 3, 4].includes(n)) {
         n = Number(prompt(chalk.red.bold("ERROR, select a character: ")));
     }
 
