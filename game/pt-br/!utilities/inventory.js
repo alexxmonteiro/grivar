@@ -46,7 +46,7 @@ class Inventory{
 export var item = new Inventory(); 
 
 item.registerItem(1, {
-    name: "Água Benta",
+    name: "Agua Benta",
     type: "Throwable", 
     description: "It is one of the sacramentals: sacred signs that, through the prayer of the Church, prepare the heart to receive God's grace and help combat evil.",
     damage: 4,
@@ -54,7 +54,7 @@ item.registerItem(1, {
 });
 
 item.registerItem(2, {
-    name: "Poção de Vida",
+    name: "Pocao de Vida",
     type: "Consumable", 
     description: "A mysterious magical liquid that heals even the deepest scars.",
     lifeRegen: 3,
