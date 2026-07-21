@@ -10,28 +10,28 @@
 <font size="5">**SETUP**</font>
 
 Open the *Grivar* project on **GitHub** and, on the first screen, click the name "*GRIVAR*" located below "*Releases*".
-<img width="1500" height="780" alt="1" src="https://github.com/user-attachments/assets/a7de5592-2c0a-4d19-ba6d-53cdefce2755" />
+<img width="1920" height="1080" alt="1" src="https://github.com/user-attachments/assets/16075612-5b5e-4ce8-8771-10c0b067e4a7" />
 
 Once you are on the *releases* screen, click on **grivar-installer.zip**, wait for the download to complete, and then click "*Open folder*" (or "*View files*") in your browser's download section or locate the folder manually.
-<img width="1500" height="780" alt="2" src="https://github.com/user-attachments/assets/7bdb6fbc-8806-4327-ad24-14e940e769db" />
+<img width="1920" height="1080" alt="2" src="https://github.com/user-attachments/assets/6c80520b-d661-4a9a-bafc-ef8bf92e1ef0" />
 
 Left-click on *grivar-installer.zip* and extract it using your file extraction program.
-<img width="1500" height="780" alt="4" src="https://github.com/user-attachments/assets/e68357fb-653a-442b-a680-633bcd2343d1" />
+<img width="327" height="44" alt="3" src="https://github.com/user-attachments/assets/03bd34f7-6cd9-4e94-87d7-09f9ba43fff2" />
 
 Once the file is extracted, double-click the file named *GRIVAR.exe* or *GRIVAR_setup.exe*.
-<img width="1500" height="780" alt="6" src="https://github.com/user-attachments/assets/123f41b2-d045-4d6c-805a-37a9b4dd810b" />
+<img width="326" height="44" alt="4" src="https://github.com/user-attachments/assets/245e29a4-5008-491d-8e4d-d647d32f9790" />
 
 When the setup file opens, **select the language** you wish to use for the installation.
-<img width="1500" height="780" alt="7" src="https://github.com/user-attachments/assets/1a9d0f83-8a60-433f-8250-72947889b927" />
+<img width="477" height="227" alt="5" src="https://github.com/user-attachments/assets/e80800c5-1be4-4a68-8a56-26538e260435" />
 
 Type the *path* you want to use for the game installation into the **text box**, or **browse** for it manually.
-<img width="1500" height="780" alt="8" src="https://github.com/user-attachments/assets/f19f7812-ca07-4c79-9957-1cb9bc5579f1" />
+<img width="795" height="612" alt="6" src="https://github.com/user-attachments/assets/c91a96eb-e9b4-456f-a748-e550e4b28784" />
 
 You can (or cannot) add a **desktop shortcut** by *checking* (and unchecking) *the box*.
-<img width="1500" height="780" alt="9" src="https://github.com/user-attachments/assets/a1193c0e-b574-4348-bece-545f081826b2" />
+<img width="797" height="619" alt="7" src="https://github.com/user-attachments/assets/a4196ec6-9227-4a52-8f81-b7b97bbf33b3" />
 
 When everything is ready, click **Install**.
-<img width="1500" height="780" alt="10" src="https://github.com/user-attachments/assets/87f0674f-6eef-4eac-a252-8fb3a9155631" />
+<img width="791" height="612" alt="8" src="https://github.com/user-attachments/assets/f6867560-3530-46c0-bce6-893740d6cfdf" />
 
 Once the installation is complete, you can choose whether or not to **launch** the game by checking or unchecking the *box*; then, click "**Finish**" and ***enjoy***.
-<img width="1500" height="780" alt="11" src="https://github.com/user-attachments/assets/e434a175-1881-4a46-a50d-61f4b699f14d" />
+<img width="797" height="618" alt="9" src="https://github.com/user-attachments/assets/282cdb63-f9c6-4087-8ac3-b44fd352465a" />
