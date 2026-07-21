@@ -17,10 +17,10 @@ Sempre que me vejo obrigado a transitar pelas proximidades daquela maldita caver
 Ignoro se os meus apelos anteriores chegaram aos Vossos olhos, meu senhor, mas suplico, pelo amor do bom Deus, que se esta carta receber a Vossa augusta atenção, envieis Vossos homens e tomeis uma providência imediata, pois a escuridão avança sobre nós...".`));
         prompt();
 
-        console.log(chalk.yellow.italic(`Após ler o conteúdo da carta, um estrondo alarmante ecoa por toda a cabana, parece que a porta se fechou repentinamente, ao se virar, você vê o que parece ser um esqueleto com uma armadura de placas e espada na mão, ambas enferrujadas, não possuía o elmo, ele fica te observando, imóvel, como uma estatua de mármore, a duvida que paira no ar é como aquilo ainda está de pé, ele nem ao menos possui juntas ou sangue corrente, é apenas um conjunto de ossos secos e um pouco deteriorados pelo tempo, enquanto você reflete, ele começa a andar lentamente em sua direção, você sente a dor que cada passo lhe causa. REPENTINAMENTE, ele avança rapidamente em sua direção, pronto para te atacar...`));
+        console.log(chalk.yellow.italic(`Após ler o conteúdo da carta, um estrondo alarmante ecoa por toda a cabana, parece que a porta se fechou repentinamente, ao se virar, você vê o que parece ser um esqueleto com uma armadura de placas e espada na mão, ambas enferrujadas, não possuía o elmo, ele fica te observando, imóvel, como uma estatua de mármore, a duvida que paira no ar é como aquilo ainda está de pé, ele nem ao menos possui juntas ou sangue corrente, é apenas um conjunto de ossos secos e um pouco deteriorados pelo tempo, enquanto você reflete, ele começa a andar lentamente em sua direção, você sente a dor que cada passo lhe causa.`));
         prompt();
 
-        console.log(chalk.yellow.bold(`DE REPENTE`) + chalk.yellow.italic(`, ela avança rapidamente em sua direção, pronta para atacar...`));
+        console.log(chalk.yellow.bold(`EM UM PISCAR DE OLHOS`) + chalk.yellow.italic(` como se esperasse pelo momento correto de agir, ele avança em sua direção rapidamente!`));
         prompt();
 
         await combat(1);
@@ -30,10 +30,10 @@ export async function shut_triggerProp() {
         console.log(chalk.yellow.italic(`Ao se aproximar da porta da cabana, você sente um mal pressentimento, algo está completamente errado, uma das tochas está acesa, esta gera uma turva iluminação que se projeta sobre o lado esquerdo da porta, enquanto a outra repousa no chão, esse sentimento é intensificado por um calafrio que percorre todo seu corpo repentinamente. Seu corpo paralisa involuntariamente por segundos, até que você explode em um misto de coragem e impulsividade e entra no alojamento sem olhar para trás...`));
         prompt();
 
-        console.log(chalk.yellow.italic(`A tênue luz exterior te permite uma visão limitada do interior, é apenas um cômodo, nada há dentro, um espaço completamente esvaziado de significado, você se questiona do sentido de uma moradia vazia até que, de um dos cantos escuros, você vê algo que se aproxima agilmente, isto parece hostil...`));
+        console.log(chalk.yellow.italic(`A tênue luz exterior te permite uma visão limitada do interior, é apenas um cômodo, nada há dentro, um espaço completamente esvaziado de significado, você se questiona do sentido de uma moradia vazia até que...`));
         prompt();
 
-        console.log(chalk.yellow.bold(`DE UM DOS CANTOS ESCUROS`) + chalk.yellow.italic(`, você vê algo se aproximando rapidamente — parece hostil...`));
+        console.log(chalk.yellow.bold(`ALGO SE APROXIMA`) + chalk.yellow.italic(` vindo de um dos canto escuros.`));
         prompt();
 
         await combat(haT())

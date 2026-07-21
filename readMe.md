@@ -31,7 +31,7 @@
 
 ---
 
-4. Once the file is extracted, double-click the file named **GRIVAR.exe** or **GRIVAR_setup.exe**.
+4. Once the file is extracted, double-click the file named **grivar_setup.exe**.
    <br><br>
    <img src="https://github.com/user-attachments/assets/245e29a4-5008-491d-8e4d-d647d32f9790" alt="4" width="350" />
 
