@@ -1,3 +1,4 @@
+<div align="center">
 <font size="5">**INTRODUCTION**</font>
 
 "GRIVAR" is one of those classic text-based RPGs; its story revolves around the disappearance of peasants near a cave. As the King's right-hand man, you (the player)—accompanied by a small contingent of men—were sent to investigate and try to solve the mystery. Upon arriving near the cave, your caravan was attacked by a mysterious force; you barely escaped with your life and sought shelter in an abandoned cabin while recovering from your wounds. Some time has passed since the incident, and you finally wake from your unconscious state—fully restored—only to make a dangerous decision: to explore the area on your own.
@@ -35,3 +36,4 @@ When everything is ready, click **Install**.
 
 Once the installation is complete, you can choose whether or not to **launch** the game by checking or unchecking the *box*; then, click "**Finish**" and ***enjoy***.
 <img width="797" height="618" alt="9" src="https://github.com/user-attachments/assets/282cdb63-f9c6-4087-8ac3-b44fd352465a" />
+</div>
